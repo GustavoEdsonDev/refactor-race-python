@@ -2,9 +2,10 @@
 
 ## EQUIPE
 - [Seu Nome]
-- [Nome do Colega 1]
-- [Nome do Colega 2]
-
+- [Nome 2]
+- [Nome 3]
+- ...
+  
 ## DIAGNÓSTICO INICIAL
 
 1. **Função com muitas responsabilidades:** A função `process_order` faz o cálculo do subtotal, descontos, frete, impostos e pontos de fidelidade, além de imprimir na tela e guardar estados.
