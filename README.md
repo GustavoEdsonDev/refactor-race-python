@@ -8,15 +8,15 @@
 
 ## TA FALTANDO ISSO AQUI
 
-Ordem dos produtos duplicados: A função atual baralha a ordem dos itens porque devolve diretamente um set. Precisas de ajustar a função para que a lista mantenha a ordem original de entrada.
+**Ordem dos produtos duplicados:** A função atual pode alterar a ordem dos itens duplicados porque utiliza um `set`, que não garante a ordem original de entrada. Ajuste a função para manter a ordem em que os produtos aparecem na lista original.
 
-Testes em falta no GitHub: O teu repositório ainda só tem os 4 testes iniciais. Tens de enviar a versão final do ficheiro com os 2 testes extra (frete grátis e funcionário) para provar o que escreveste no README.
+**Testes faltando no GitHub:** O repositório ainda contém apenas os quatro testes iniciais. Envie a versão atualizada do arquivo de testes com os dois cenários adicionais: frete grátis e cliente funcionário. Assim, o código ficará de acordo com o que foi documentado no README.
 
-Erro de importe nos testes (ModuleNotFoundError): O teu ficheiro de testes tenta importar o código principal diretamente, mas ele está guardado dentro da pasta src/. É preciso ajustar o import no topo do test_checkout.py para ele encontrar o caminho.
+**Erro de importação nos testes (`ModuleNotFoundError`):** O arquivo de testes tenta importar o código principal diretamente, mas ele está localizado na pasta `src/`. Ajuste a importação no início do arquivo `test_checkout.py` para que o Python encontre o módulo corretamente.
 
-Renomear e atualizar métricas: O ficheiro está guardado como METRICS.MD (maiúsculas) e precisa de ser alterado para METRICS.md (minúsculas). Além disso, os valores lá dentro precisam de refletir os 6 testes a passar.
+**Renomear o arquivo e atualizar as métricas:** O arquivo está nomeado como `METRICS.MD`, mas o padrão solicitado é `METRICS.md`. Renomeie o arquivo e atualize os indicadores para refletir os resultados reais da execução dos seis testes, incluindo a quantidade de testes aprovados e a cobertura obtida.
 
-Ficheiros de configuração em falta: Tens de criar os ficheiros .gitignore e requirements-dev.txt na raiz do projeto, conforme a estrutura mínima exigida pelo regulamento.
+**Arquivos de configuração faltando:** Crie os arquivos `.gitignore` e `requirements-dev.txt` na raiz do projeto, conforme a estrutura mínima exigida pelo enunciado. No arquivo de dependências, inclua `pytest`, `pytest-cov`, `radon` e `ruff`.
   
 ## DIAGNÓSTICO INICIAL
 
