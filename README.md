@@ -5,6 +5,18 @@
 - [sla 2]
 - [sla 3]
 - ...
+
+## TA FALTANDO ISSO AQUI
+
+Ordem dos produtos duplicados: A função atual baralha a ordem dos itens porque devolve diretamente um set. Precisas de ajustar a função para que a lista mantenha a ordem original de entrada.
+
+Testes em falta no GitHub: O teu repositório ainda só tem os 4 testes iniciais. Tens de enviar a versão final do ficheiro com os 2 testes extra (frete grátis e funcionário) para provar o que escreveste no README.
+
+Erro de importe nos testes (ModuleNotFoundError): O teu ficheiro de testes tenta importar o código principal diretamente, mas ele está guardado dentro da pasta src/. É preciso ajustar o import no topo do test_checkout.py para ele encontrar o caminho.
+
+Renomear e atualizar métricas: O ficheiro está guardado como METRICS.MD (maiúsculas) e precisa de ser alterado para METRICS.md (minúsculas). Além disso, os valores lá dentro precisam de refletir os 6 testes a passar.
+
+Ficheiros de configuração em falta: Tens de criar os ficheiros .gitignore e requirements-dev.txt na raiz do projeto, conforme a estrutura mínima exigida pelo regulamento.
   
 ## DIAGNÓSTICO INICIAL
 
