@@ -8,4 +8,4 @@
 | Complexidade média | E (34.0) | A (3.85) |
 | Índice de manutenibilidade | A (51.69) | A (54.48) |
 | Problemas identificados pelo Ruff | 4 | 0 |
-| Quantidade de testes | 4 | 4 |
+| Quantidade de testes | 4 | 4 | 
