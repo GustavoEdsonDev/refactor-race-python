@@ -1,68 +1,36 @@
 # REFactor Race Python
 
 ## EQUIPE
-- [sla 1]
-- [sla 2]
-- [sla 3]
-- ...
 
-## TA FALTANDO ISSO AQUI
+- Integrante 1: [Nome completo]
+- Integrante 2: [Nome completo]
+- Integrante 3: [Nome completo]
+  ...
 
-**Ordem dos produtos duplicados:** A função atual pode alterar a ordem dos itens duplicados porque utiliza um `set`, que não garante a ordem original de entrada. Ajuste a função para manter a ordem em que os produtos aparecem na lista original.
+## PENDÊNCIAS PARA A ENTREGA
 
-**Testes faltando no GitHub:** O repositório ainda contém apenas os quatro testes iniciais. Envie a versão atualizada do arquivo de testes com os dois cenários adicionais: frete grátis e cliente funcionário. Assim, o código ficará de acordo com o que foi documentado no README.
+### 1. Manter a ordem dos produtos duplicados
 
-**Erro de importação nos testes (`ModuleNotFoundError`):** O arquivo de testes tenta importar o código principal diretamente, mas ele está localizado na pasta `src/`. Ajuste a importação no início do arquivo `test_checkout.py` para que o Python encontre o módulo corretamente.
+A função atual pode alterar a ordem dos produtos duplicados porque utiliza um `set`, que não garante a preservação da ordem original de entrada. É necessário ajustar a função para manter a ordem em que os produtos aparecem na lista original.
 
-**Renomear o arquivo e atualizar as métricas:** O arquivo está nomeado como `METRICS.MD`, mas o padrão solicitado é `METRICS.md`. Renomeie o arquivo e atualize os indicadores para refletir os resultados reais da execução dos seis testes, incluindo a quantidade de testes aprovados e a cobertura obtida.
+### 2. Adicionar os testes que faltam no GitHub
 
-**Arquivos de configuração faltando:** Crie os arquivos `.gitignore` e `requirements-dev.txt` na raiz do projeto, conforme a estrutura mínima exigida pelo enunciado. No arquivo de dependências, inclua `pytest`, `pytest-cov`, `radon` e `ruff`.
-  
-## DIAGNÓSTICO INICIAL
+O repositório ainda contém apenas os quatro testes iniciais. É necessário atualizar o arquivo de testes com dois cenários adicionais: frete grátis e cliente funcionário. Dessa forma, a implementação ficará de acordo com o que foi documentado neste README.
 
-1. **Função com muitas responsabilidades:** A função `process_order` faz o cálculo do subtotal, descontos, frete, impostos e pontos de fidelidade, além de imprimir na tela e guardar estados.
-2. **Duplicação de código:** O cálculo do subtotal é realizado duas vezes (`total1` e `subtotal`) usando exatamente o mesmo loop `for`.
-3. **Condicionais aninhadas:** As regras de desconto de clientes VIP, Funcionário e Regular estão aninhadas de forma desnecessária, em vez de usarem estruturas de decisão mais diretas.
-4. **Números e Strings mágicas:** Taxas de imposto, valores de frete e siglas de estados estão escritos diretamente no código, sem o uso de variáveis constantes ou dicionários de mapeamento.
-5. **Lógica de busca ineficiente:** A busca por produtos repetidos utiliza dois loops aninhados (`O(n²)`), o que é muito ineficiente e complexo de manter.
-6. **Estado Global:** A função modifica uma lista global chamada `ORDERS_PROCESSED`, o que prejudica a testabilidade e cria efeitos colaterais no código.
+### 3. Corrigir o erro de importação dos testes
 
-## DESCRIÇÃO
-Este projeto é a entrega do desafio REFactor Race Python. O objetivo foi aplicar técnicas de refatoração em um sistema legado de processamento de pedidos para melhorar a qualidade interna do código (reduzir complexidade, aumentar manutenibilidade e cobertura de testes) sem alterar seu comportamento original.
+O arquivo de testes tenta importar o código principal diretamente, mas o módulo está localizado na pasta `src/`. É necessário ajustar a importação no início de `test_checkout.py` para que o Python encontre o módulo corretamente, inclusive em um ambiente configurado do zero.
 
-## DIAGNÓSTICO INICIAL (CODE SMELLS ENCONTRADOS)
-1. **Função com muitas responsabilidades (God Function):** A função `process_order` fazia cálculos de subtotal, descontos, frete, impostos e pontos de fidelidade, além de imprimir na tela.
-2. **Duplicação de código:** O subtotal era calculado duas vezes usando o mesmo loop `for`.
-3. **Condicionais aninhadas (Arrow Anti-Pattern):** Regras de desconto profundamente aninhadas dificultando a legibilidade.
-4. **Números e Strings mágicas:** Taxas e siglas de estados "hardcoded" pelo código.
-5. **Lógica ineficiente:** Busca por produtos repetidos usava dois loops aninhados `O(n²)`.
-6. **Estado Global:** Modificação direta da variável global `ORDERS_PROCESSED`.
+### 4. Renomear o arquivo de métricas
 
-## REFATORAÇÕES REALIZADAS E DECISÕES TÉCNICAS
-1. **Extract Function:** Extraímos blocos para funções menores e especializadas (`calculate_subtotal`, `calculate_discount`, etc.). Isso reduziu a complexidade da função principal de E(34) para A(1).
-2. **Remove Duplicate Code:** Centralizamos a lógica de subtotal em apenas uma função.
-3. **Replace Conditional with Mapping:** O dicionário `TAX_RATES` substituiu os múltiplos `if/elif` de impostos por estado.
-4. **Replace Magic Number with Constant:** Constantes como `EXPRESS_SHIPPING_MULTIPLIER` e `SOUTHEAST_STATES` foram criadas para agrupar valores de domínio.
-5. **Otimização de Algoritmo:** Substituímos o loop de duplicados pelo uso de `Set` em Python, otimizando de O(n²) para O(n).
+O arquivo está nomeado como `METRICS.MD`, mas o padrão definido para a entrega é `METRICS.md`. É necessário renomeá-lo e atualizar as métricas com os resultados reais da execução dos testes, incluindo a quantidade de testes aprovados e o percentual de cobertura obtido.
 
-## TESTES ADICIONADOS
-Além dos 4 originais, foram criados 2 novos cenários de teste para cobrir mais regras de negócio:
-- `test_regular_customer_with_free_shipping`: Verifica a aplicação correta da regra de frete zerado para valores >= 500.
-- `test_employee_customer`: Valida o fluxo de desconto exclusivo de 20% para funcionários.
+### 5. Criar os arquivos de configuração
 
-## MÉTRICAS ANTES E DEPOIS
-*Consultar o arquivo `METRICS.md` para a tabela completa.*
-**Resumo dos ganhos de qualidade:**
-- A complexidade ciclomática da `process_order` despencou de **E(34)** para **A(1)**.
-- A cobertura de testes aumentou de **83%** para **95%** (sem considerar os novos testes).
-- Os problemas de análise estática do Ruff caíram de **4** para **0**.
+É necessário criar os arquivos `.gitignore` e `requirements-dev.txt` na raiz do projeto, conforme a estrutura mínima indicada no enunciado.
 
-## USO DE INTELIGÊNCIA ARTIFICIAL
-- **Ferramenta utilizada:** Google Gemini.
-- **Finalidade:** Auxílio na identificação dos "code smells", estruturação dos arquivos de métricas, sugestões de técnicas de refatoração limpa e elaboração da documentação final.
-- **Validação:** Todas as sugestões de código extraídas foram exaustivamente validadas rodando a suíte de testes (`pytest -q`) após cada modificação para garantir que a rede de segurança não foi quebrada.
+O arquivo `requirements-dev.txt` deverá incluir as seguintes ferramentas:
 
-## MELHORIAS FUTURAS
-- Remover o uso de mutação de estado global (`ORDERS_PROCESSED`).
-- Implementar tipagem estática (Type Hints) nas funções.
-- Incluir validações rigorosas (ex: estourar um `ValueError` se `qty <= 0`).
+- `pytest`
+- `pytest-cov`
+-
