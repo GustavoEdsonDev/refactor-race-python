@@ -1,9 +1,9 @@
 # REFactor Race Python
 
 ## EQUIPE
-- [Seu Nome]
-- [Nome 2]
-- [Nome 3]
+- [sla 1]
+- [sla 2]
+- [sla 3]
 - ...
   
 ## DIAGNÓSTICO INICIAL
